@@ -1,0 +1,106 @@
+#1.feladat
+type nul > README.md
+echo Git Exam Repository > README.md
+git add README.md
+git commit -m "Added readme file with Title content"
+git push
+
+#2.feladat
+type nul > notes.txt
+echo Version 1 > notes.txt
+git add notes.txt
+git commit -m "note file created, line 1 added"
+git push
+echo Version 1 >> notes.txt
+git add notes.txt
+git commit -m "line 2 added"
+git push
+echo Version 2 >> notes.txt
+git add notes.txt
+git commit -m "line 3 added in note file"
+git push
+
+#3.feladat
+git checkout -b feature-login
+echo Login feature started > notes.txt
+git add notes.txt
+git commit -m "login feature added in note"
+git push --set-upsteam origin feature-login
+git switch main
+
+#4. feladat
+git checkout -b feature-ui
+git branch feature-api
+echo UI feature work > notes.txt
+git add notes.txt
+git commit -m "UI feature added in note"
+git push --set-upstream origin feature-ui
+git switch feature-api
+echo API feature work > notes.txt
+git add notes.txt
+git commit -m "API feature added in note"
+git push --set-upstream origin feature-api
+
+#5. feladat
+git switch main
+type nul > app.js
+echo console.log("MAIN") > app.js
+git add app.js
+type nul > style.css
+echo body { background: blue; } > style.css
+git add style.css
+git commit -m "app.js and style.css added"
+git push
+echo body { background: white; } > style.css
+echo console.log("UI") > app.js
+git add style.css
+git add app.js
+git commit -m "modified css and js file"
+git push
+
+#6. feladat
+echo Temporary change > notes.txt
+git add notes.txt
+git stash staged
+git drop
+git commit -m "temporary changes reversed"
+git push
+
+#7.feladat
+git merge feature-login
+git push
+
+#8.feladat
+git switch feature-ui
+git rebase main
+git push
+
+#9.feladat
+git switch feature-ui
+git log --online
+git switch main
+git cherry-pick 
+
+#10.feladat
+git switch main
+git pull
+
+git checkout -b feature-final
+echo Final feature > notes.txt
+git add notes.txt
+git commit -m "modified note"
+git push --set-upstream origin feature-final
+
+git switch main
+git pull
+git branch -d feature-login
+git push
+
+echo update1 >> notes.txt
+git add notes.txt
+git commit -m "modified the notes"
+echo update2 >> notes.txt
+git add notes.txt
+git commit -m "modified the notes again"
+git log --oneline
+git diff main origin/main
